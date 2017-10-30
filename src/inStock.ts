@@ -49,7 +49,26 @@ export class InStockGraph extends SteelCloud3DViz{
             .classed("axis-y", true)
 
         canvas.select(".axis-x").call(axes.x);
-        canvas.select(".axis-y").call(axes.y);                
+        canvas.select(".axis-y").call(axes.y);      
+        
+        canvas.selectAll(".bar")
+            .data<IStockDatum>(this.data)
+            .enter()
+                .append("rect")
+                .classed("bar", true)
+                .attr("fill", "steelblue")
+                .attr("x", (d) => {
+                    let scaled = scales.x(d.name)
+                    if (scaled) {
+                        return scaled;
+                    }
+                    else {
+                        return 0;
+                    }
+                })
+                .attr("y", d => scales.y(d.inStock))
+                .attr("width", scales.x.bandwidth())
+                .attr("height", d => canvasHeight - scales.y(d.inStock))
         
         return div;
     }
