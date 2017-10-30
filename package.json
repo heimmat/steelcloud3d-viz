@@ -11,8 +11,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/d3": "^4.11.0",
     "ts-loader": "^3.1.0",
     "typescript": "^2.5.3",
     "webpack": "^3.8.1"
+  },
+  "dependencies": {
+    "d3": "^4.11.0"
   }
 }

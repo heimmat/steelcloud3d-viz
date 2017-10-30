@@ -7,13 +7,27 @@
         <script>
             document.addEventListener("DOMContentLoaded", documentInit);
 
+
+            let data = [
+                {
+                    name: "Eisenspäne",
+                    inStock: 500
+                }, {
+                    name: "Metall",
+                    inStock: 20
+                }, {
+                    name: "Lack",
+                    inStock: 250
+                }
+            ]
+
             function documentInit() {
                 document.getElementById("btn_inStock").addEventListener("click", newInStockGraph)
             }
 
             function newInStockGraph() {
                 console.log(steelcloud3d_viz);
-                let graph = new steelcloud3d_viz.InStockGraph();
+                let graph = new steelcloud3d_viz.InStockGraph(data, {width: 800, height: 400});
                 console.log(graph)
                 document.body.appendChild(graph.getVisualization())
             }
