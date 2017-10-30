@@ -1,0 +1,26 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>Test</title>
+        <meta charset="utf-8">
+        <script src="../dist/bundle.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", documentInit);
+
+            function documentInit() {
+                document.getElementById("btn_inStock").addEventListener("click", newInStockGraph)
+            }
+
+            function newInStockGraph() {
+                console.log(steelcloud3d_viz);
+                let graph = new steelcloud3d_viz.InStockGraph();
+                console.log(graph)
+                document.body.appendChild(graph.getVisualization())
+            }
+
+        </script>
+    </head>
+    <body>
+        <input type="button" value="Add InStock-Graph" id="btn_inStock">
+    </body>
+</html>
