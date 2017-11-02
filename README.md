@@ -16,3 +16,25 @@ Zur Verwendung des erstellten Codes genügt es, die Datei *bundle.js* aus dem Or
 
 ### Mitarbeit am Code
 Um den Code weiter bearbeiten oder nutzen zu können, muss [Node.js](https://nodejs.org/de/) installiert sein. Mit dem Terminal-Befehl `npm install` wird die Entwicklungsumgebung vorbereitet und alle notwendigen Tools installiert.
+
+#### Struktur des Codes
+Dieses Projekt ist modular aufgebaut. Es werden einzelne Klassen definiert, die jeweils einen Visualisierungstypen bereitstellen und einer gemeinsamen Schnittstelle entsprechen.
+
+##### `src`Verzeichnis
+Die Kernkomponenten sind im Verzeichnis `src` zu finden. 
+###### `index.ts`
+Die Datei `index.ts` ist der Einstiegspunkt in den Code. Hier werden die einzeln definierten Visualisierungsfunktionen gebündelt exportiert.
+
+###### `common.ts`
+In der Datei `common.ts` sind Anforderungen und Schnittstellen festgelegt, denen alle weiteren Klassen genügen sollten.
+
+###### `inStock.ts`
+Die Datei `inStock.ts` enthält eine beispielhafte Implementierung für die Visualisierung von Lagerbeständen.
+
+#### Verwendete Sprachen, Bibliotheken und Frameworks
+* [Typescript](https://www.typescriptlang.org/): Ein Überbau für JavaScript. Ermöglicht die Nutzung von Typen, Klassen und Modulen und wird zu nativem JavaScript kompiliert.
+* [Webpack](https://webpack.js.org/): Bündelt mehrere JavaScript-Dateien in eine einzelne Datei, die im Browser eingebunden werden kann. Übersetzt gleichzeitig den *node.js*-"Dialekt" in browsertaugliches JS.
+* [d3.js](https://d3js.org/): Eine JS-Bibliothek zur Datenvisualisierung.
+* [plotly.js](https://github.com/plotly/plotly.js)?: Ebenfalls eine Bibliothek zur Datenvisualisierung. Setzt auf d3 auf und erlaubt zusätzlich die Erstellung von 3D-Grafiken.
+
+Noch nicht installierte Frameworks und Bibliotheken können mit dem Befehl `npm install <name> --save` installiert und als Dependencies eingebunden werden.
