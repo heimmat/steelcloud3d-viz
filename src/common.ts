@@ -1,9 +1,11 @@
+//Exportiere eine Schnittstelle für Visualisierungsoptionen, deren Felder alle optional sind
 export interface IVisualizationOptionsArg {
     height?: number,
     width?: number,
     margin?: IMargin
 }
 
+//Exportiere eine Klasse für Visualisierungsoptionen, die obige Schnittstelle entgegennimmt und für fehlende Werte Standardwerte einsetzt.
 export class IVisualizationOptions implements IVisualizationOptionsArg {
     height: number;
     width: number;
@@ -21,8 +23,10 @@ export class IVisualizationOptions implements IVisualizationOptionsArg {
     }
 }
 
+//Exportiere eine leere Schnittstelle zur Verwendung in der abstrakten Klasse unten
 export interface IDataPoint {}
 
+//Exportiere eine abstrakte Klasse zur Visualisierung. 
 export abstract class SteelCloud3DViz {
     protected data: IDataPoint[];
     public abstract getVisualization() : HTMLDivElement;
@@ -30,6 +34,7 @@ export abstract class SteelCloud3DViz {
     protected visualization: HTMLDivElement;
 }
 
+//Exportiere eine Schnittstelle, die die Margins für Visualisierungsoptionen enthält
 export interface IMargin {
     top: number,
     bottom: number,

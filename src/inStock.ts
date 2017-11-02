@@ -1,11 +1,15 @@
+//Importiere Definitionen aus "common.ts"
 import {SteelCloud3DViz, IDataPoint, IVisualizationOptionsArg, IVisualizationOptions} from "./common";
+//Importiere alle Definitionen aus der d3-Bibliothek in eine Variable d3. 
 import * as d3 from "d3";
 
+//Erweitere das generische Interface IDataPoint um name und inStock (Anzahl)
 export interface IStockDatum extends IDataPoint {
     name: string,
     inStock: number
 }
 
+//Implementiere die abstrakte Visualisierungsklasse für die Visualisierung von Lagerbeständen
 export class InStockGraph extends SteelCloud3DViz{
     protected data: IStockDatum[];
     protected vizOptions: IVisualizationOptions;
@@ -75,6 +79,7 @@ export class InStockGraph extends SteelCloud3DViz{
 
     public updateData(newData: IStockDatum[]) {
         this.data = newData
+        //ToDo: sorge dafür, dass Visualisierung geändert wird
     }
 
     public getVisualization() {
