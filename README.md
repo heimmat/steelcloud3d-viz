@@ -31,6 +31,12 @@ In der Datei `common.ts` sind Anforderungen und Schnittstellen festgelegt, denen
 ###### `inStock.ts`
 Die Datei `inStock.ts` enthält eine beispielhafte Implementierung für die Visualisierung von Lagerbeständen.
 
+##### `dist`-Verzeichnis
+Enthält die von Webpack generierte `bundle.js`.
+
+##### `test`-Verzeichnis
+Enthält eine HTML-Datei, mit der die Visualisierungen überprüft werden können.
+
 #### Verwendete Sprachen, Bibliotheken und Frameworks
 * [Typescript](https://www.typescriptlang.org/): Ein Überbau für JavaScript. Ermöglicht die Nutzung von Typen, Klassen und Modulen und wird zu nativem JavaScript kompiliert.
 * [Webpack](https://webpack.js.org/): Bündelt mehrere JavaScript-Dateien in eine einzelne Datei, die im Browser eingebunden werden kann. Übersetzt gleichzeitig den *node.js*-"Dialekt" in browsertaugliches JS.
