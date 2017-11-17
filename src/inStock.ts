@@ -52,8 +52,8 @@ export class InStockGraph extends SteelCloud3DViz{
             .classed("axis", true)
             .classed("axis-y", true)
 
-        canvas.select(".axis-x").call(axes.x);
-        canvas.select(".axis-y").call(axes.y);      
+        canvas.select(".axis-x").call(<any>axes.x);
+        canvas.select(".axis-y").call(<any>axes.y);      
         
         canvas.selectAll(".bar")
             .data<IStockDatum>(this.data)
