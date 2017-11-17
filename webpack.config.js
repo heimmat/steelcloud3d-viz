@@ -9,7 +9,10 @@ module.exports = {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/
-      }
+      },/*{
+        test: /plotlyTest\.ts$/,
+        use: 'ify-loader'
+      }*/
     ]
   },
   resolve: {
@@ -19,5 +22,8 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
     library: "steelcloud3d_viz"
-  }
+  },
+  /*node: {
+    fs: "empty"
+ }*/
 };

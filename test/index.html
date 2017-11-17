@@ -4,6 +4,8 @@
         <title>Test</title>
         <meta charset="utf-8">
         <script src="../dist/bundle.js"></script>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <script type="text/javascript" src="https://cdn.plot.ly/plotly-latest.min.js"></script>
         <script>
             document.addEventListener("DOMContentLoaded", documentInit);
 
@@ -23,6 +25,9 @@
 
             function documentInit() {
                 document.getElementById("btn_inStock").addEventListener("click", newInStockGraph)
+                document.getElementById("btn_plotly").addEventListener("click", (evt) => {
+                    addPlotlyPlot("plotlyTarget");
+                });
             }
 
             function newInStockGraph() {
@@ -32,9 +37,29 @@
                 document.body.appendChild(graph.getVisualization())
             }
 
+            function addPlotlyPlot(root) {
+                d3.csv("https://raw.githubusercontent.com/plotly/datasets/master/3d-scatter.csv", (err, csvData) => {
+                    let trace = {
+                        x: csvData.map(d => typeof d.x1 !== "undefined" ? parseFloat(d.x1) : ""),
+                        y: csvData.map(d => typeof d.y1 !== "undefined" ? parseFloat(d.y1) : ""),
+                        z: csvData.map(d => typeof d.z1 !== "undefined" ? parseFloat(d.z1) : ""),
+                        mode: "markers",
+                        marker: {
+                            size: 10,
+                            color: "#ff0000"
+                        },
+                        type: "scatter3d",
+                    }
+                
+                    Plotly.newPlot(root, [trace]);
+                });
+            }
+
         </script>
     </head>
     <body>
         <input type="button" value="Add InStock-Graph" id="btn_inStock">
+        <input type="button" value="Add Plotly" id="btn_plotly">
+        <div id="plotlyTarget"></div>
     </body>
 </html>
